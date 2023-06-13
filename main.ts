@@ -8,9 +8,12 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "r") {
         lspeed = 0
         rspeed = 20
-    } else {
+    } else if (receivedString == "l") {
         rspeed = 0
         lspeed = 20
+    } else if (receivedString == "d") {
+        rspeed = 0
+        lspeed = 0
     }
     basic.pause(1000)
 })
