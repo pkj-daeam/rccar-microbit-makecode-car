@@ -26,6 +26,11 @@ let camp = -1
 let speed = 30
 let _1 = 100
 basic.forever(function () {
-    motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 0 * speed + rspeed)
-    motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 0 * speed + lspeed)
+    if (0 > forw) {
+        motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, -1 * speed + rspeed)
+        motor.MotorRun(motor.Motors.M2, motor.Dir.CW, -1 * speed + lspeed)
+    } else {
+        motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 0 * speed + rspeed)
+        motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 0 * speed + lspeed)
+    }
 })
