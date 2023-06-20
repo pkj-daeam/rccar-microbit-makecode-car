@@ -20,17 +20,17 @@ radio.onReceivedString(function (receivedString) {
 let rspeed = 0
 let lspeed = 0
 let forw = 0
-radio.setGroup(123)
 let forward = 0
+radio.setGroup(123)
 let camp = -1
 let speed = 30
 let _1 = 100
 basic.forever(function () {
-    if (0 > forw) {
-        motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, -1 * speed + rspeed)
-        motor.MotorRun(motor.Motors.M2, motor.Dir.CW, -1 * speed + lspeed)
+    if (0 >= forw) {
+        motor.MotorRun(motor.Motors.M1, motor.Dir.CCW, -30 * forw + rspeed)
+        motor.MotorRun(motor.Motors.M2, motor.Dir.CW, -30 * forw + lspeed)
     } else {
-        motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 0 * speed + rspeed)
-        motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 0 * speed + lspeed)
+        motor.MotorRun(motor.Motors.M1, motor.Dir.CW, 30 * forw + rspeed)
+        motor.MotorRun(motor.Motors.M2, motor.Dir.CCW, 30 * forw + lspeed)
     }
 })

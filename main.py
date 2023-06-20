@@ -9,9 +9,12 @@ def on_received_string(receivedString):
     elif receivedString == "r":
         lspeed = 0
         rspeed = 20
-    else:
+    elif receivedString == "l":
         rspeed = 0
         lspeed = 20
+    elif receivedString == "d":
+        rspeed = 0
+        lspeed = 0
     basic.pause(1000)
 radio.on_received_string(on_received_string)
 
@@ -25,6 +28,10 @@ speed = 30
 _1 = 100
 
 def on_forever():
-    motor.motor_run(motor.Motors.M1, motor.Dir.CW, 0 * speed + rspeed)
-    motor.motor_run(motor.Motors.M2, motor.Dir.CCW, 0 * speed + lspeed)
+    if 0 > forw:
+        motor.motor_run(motor.Motors.M1, motor.Dir.CCW, -30 * forw + rspeed)
+        motor.motor_run(motor.Motors.M2, motor.Dir.CW, -30 * forw + lspeed)
+    else:
+        motor.motor_run(motor.Motors.M1, motor.Dir.CW, 30 * forw + rspeed)
+        motor.motor_run(motor.Motors.M2, motor.Dir.CCW, 30 * forw + lspeed)
 basic.forever(on_forever)
